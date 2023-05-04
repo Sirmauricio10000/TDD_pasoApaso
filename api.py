@@ -17,9 +17,34 @@ def verificar_primo(n: str):
     return {"validacion": validacion, "respuesta": respuesta}
 
 @app.post("/fibonacci/{position}")
-def fibonacci(position: int):
+def fibonacci(position: str):
+    response: Response
 
-    return 5
+    validacion = validaciones(position, "fibonacci")
+    if validacion != "Solicitud Exitosa":
+        response.status_code = 400
+        return {"validacion": validacion}
+    respuesta = fibonacci_exe(position)
+
+    return {"validacion": validacion, "respuesta": respuesta}
+
+def fibonacci_exe(position):
+    position = int(position)
+
+    if position <= 0:
+        return 0
+    if position == 1 or position == 2:
+        return 1
+
+    fib_1 = 1
+    fib_2 = 1
+
+    for i in range(3, position + 1):
+        fib_i = fib_1 + fib_2
+        fib_1 = fib_2
+        fib_2 = fib_i
+
+    return fib_i
 
 
 def es_primo(n):
