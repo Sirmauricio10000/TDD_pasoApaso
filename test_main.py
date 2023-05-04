@@ -11,3 +11,6 @@ def test_no_primo():
 
 def test_fibonacci():
     assert fibonacci(5) == {"validacion": "Solicitud Exitosa", "respuesta": 5}
+
+def test_helloFastApi():
+    assert helloFastApi() == {"mensaje": "Hello FastAPI"}
