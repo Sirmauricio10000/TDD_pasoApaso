@@ -11,7 +11,7 @@ def helloFastApi():
 
 @app.post("/isPrime/{n}")
 def verificar_primo(n: str):
-    response: Response
+    response: Response = Response()
     validacion = validaciones(n, "primo")
     if validacion != "Solicitud Exitosa":
         response.status_code = 400
@@ -22,7 +22,7 @@ def verificar_primo(n: str):
 
 @app.post("/fibonacci/{position}")
 def fibonacci(position: str):
-    response: Response
+    response: Response = Response()
 
     validacion = validaciones(position, "fibonacci")
     if validacion != "Solicitud Exitosa":

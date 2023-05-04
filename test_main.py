@@ -1,5 +1,5 @@
 import pytest
-from api import fibonacci, helloFastApi, verificar_primo
+from main import fibonacci, helloFastApi, verificar_primo
 
 
 
