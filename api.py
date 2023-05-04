@@ -5,6 +5,10 @@ app = FastAPI(title= 'Aplicacion DDP',
               description= 'Proyecto de pruebas de api de la asignatura DDP', 
               version='1.0')
 
+@app.get('/hello')
+def helloFastApi():
+    return {"mensaje": "Hello FastAPI"}
+
 @app.post("/isPrime/{n}")
 def verificar_primo(n: str):
     response: Response
