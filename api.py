@@ -16,6 +16,11 @@ def verificar_primo(n: str):
     respuesta = es_primo(n)
     return {"validacion": validacion, "respuesta": respuesta}
 
+@app.post("/fibonacci/{position}")
+def fibonacci(position: int):
+
+    return 5
+
 
 def es_primo(n):
     n = int(n)
