@@ -9,7 +9,7 @@ app = FastAPI(title= 'Aplicacion DDP',
 def helloFastApi():
     return {"mensaje": "Hello FastAPI"}
 
-@app.post("/isPrime/{n}")
+@app.get("/isPrime/{n}")
 def verificar_primo(n: str):
     response: Response = Response()
     validacion = validaciones(n, "primo")
@@ -20,7 +20,7 @@ def verificar_primo(n: str):
     respuesta = es_primo(n)
     return {"validacion": validacion, "respuesta": respuesta}
 
-@app.post("/fibonacci/{position}")
+@app.get("/fibonacci/{position}")
 def fibonacci(position: str):
     response: Response = Response()
 
@@ -75,4 +75,5 @@ def validaciones(x, type):
     
     if num >= 4.3466557686937455e+208 and type == "primo":
         return "Error: El valor introducido supera el limite: 4.3466557686937455e+208"
+    
     return "Solicitud Exitosa"
