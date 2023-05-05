@@ -9,7 +9,7 @@ app = FastAPI(title= 'Aplicacion DDP',
 def helloFastApi():
     return {"mensaje": "Hello FastAPI"}
 
-@app.get("/isPrime/{n}")
+@app.post("/isPrime/{n}")
 def verificar_primo(n: str):
     response: Response = Response()
     validacion = validaciones(n, "primo")
@@ -20,7 +20,7 @@ def verificar_primo(n: str):
     respuesta = es_primo(n)
     return {"validacion": validacion, "respuesta": respuesta}
 
-@app.get("/fibonacci/{position}")
+@app.post("/fibonacci/{position}")
 def fibonacci(position: str):
     response: Response = Response()
 
